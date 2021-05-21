@@ -74,6 +74,8 @@ public class PractitionerCSVReader {
 				practitioner.setPhoneNumber(bean.getTelephone());
 				practitioner.setPager(bean.getPager());
 				practitioner.setSuffixes(bean.getSuffix());
+				practitioner.setIRN(bean.getIrn());
+				practitioner.setGS1(bean.getGs1());
 				
 				
 				connection.addEntry(practitioner);

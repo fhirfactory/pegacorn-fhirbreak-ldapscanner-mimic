@@ -57,6 +57,12 @@ public class PractitionerCSVRecord {
 	
 	@CsvBindByPosition(position = 15)
 	private String businessUnit;
+	
+	@CsvBindByPosition(position = 16)
+	private String gs1;
+	
+	@CsvBindByPosition(position = 17)
+	private String irn;
 
 	
 	public String getEmail() {
@@ -185,5 +191,21 @@ public class PractitionerCSVRecord {
 
 	public void setBusinessUnit(String businessUnit) {
 		this.businessUnit = businessUnit;
+	}
+
+	public String getGs1() {
+		return gs1;
+	}
+
+	public void setGs1(String gs1) {
+		this.gs1 = gs1;
+	}
+
+	public String getIrn() {
+		return irn;
+	}
+
+	public void setIrn(String irn) {
+		this.irn = irn;
 	}
 }
