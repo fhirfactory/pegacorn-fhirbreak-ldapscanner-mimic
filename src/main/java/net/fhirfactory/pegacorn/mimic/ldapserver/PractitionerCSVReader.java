@@ -35,9 +35,11 @@ public class PractitionerCSVReader {
 		 	
 		 	// Check to see if there are records.
 		 	if (!connection.isDirectoryEmpty()) {
-		 		LOG.info("The directory is not empty so not adding entries");
+		 		LOG.info("The directory is not empty so not adding practitioner entries");
 		 		return;
 		 	}
+		 	
+		 	LOG.info("Start - The directory was empty so loading the practitioner entries");
 	 		
 	 		 StringBuilder sb = new StringBuilder();
 
@@ -56,6 +58,7 @@ public class PractitionerCSVReader {
 	 		 List<PractitionerCSVRecord> beans = new CsvToBeanBuilder(new StringReader(sb.toString())).withType(PractitionerCSVRecord.class).withSkipLines(1).build().parse();
 			
 			PractitionerLdapEntry practitioner = new PractitionerLdapEntry("dc=practitioners,dc=com");
+			
 			
 			for (PractitionerCSVRecord bean : beans) {				
 				practitioner.setGivenName(bean.getFirstName());
@@ -81,6 +84,7 @@ public class PractitionerCSVReader {
 				connection.addEntry(practitioner);
 			}
 			
+		 	LOG.info("End - The directory was empty so loading the practitioner entries.  Count = {}", beans.size());
     		
 		} catch(Exception e) {
 			throw new RuntimeException("Error loading practitioner data" , e);

@@ -12,9 +12,9 @@ public class PractitionerLoadRoute extends RouteBuilderCommonBase {
 
     @Override
     protected void configureManagedRoutes() {
-      
-    	// A quartz timer route which will load the practitoner data if the LDAP directory is empty.
-        from("quartz://practitionerLoader?cron=0/30 0/1 * 1/1 * ? *")
+                   
+    	// A  timer route which will run at startup and every 30 seconds and load the practitoner data if the LDAP directory is empty.
+        from("timer://practitionerLoaderRegularInterview?fixedRate=true&period=30000")
         .process(exchange -> {
         	PractitionerCSVReader csvReader = new PractitionerCSVReader();
         	csvReader.load();
