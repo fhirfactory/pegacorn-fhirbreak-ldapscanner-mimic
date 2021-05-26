@@ -1,4 +1,4 @@
-email,phone,mobile,firstname,lastname,employeeId,JobTitle,preferredName,titles,suffixes,pager,division,branch,section,subsection,Business Unit,8017933772305104452351,10445235
+email,phone,mobile,firstname,lastname,employeeId,JobTitle,preferredName,personalTitles,suffix,pager,division,branch,section,subsection,Business Unit,8017933772305104452351,10445235
 "Jasen.Schremmer@test.act.gov.au",0432123456,0251515151,"Jasen","Schremmer",1,Doctor,"Jasen",MR,X,11111111,Division1,Branch1,Section1,Subsection1,BU1,8017933772305104452351,10445235
 "Chris.Pellow@test.act.gov.au",0432123457,0251515152,"Chris","Pellow",2,Nurse,"Chris",MR,X,11111111,Division1,Branch1,Section1,Subsection1,BU1,8017933772305104452351,10445235
 "Mark.Hunter@test.act.gov.au",0432123458,0251515153,"Mark","Hunter",3,Doctor,"Mark",MR,X,11111111,Division1,Branch1,Section1,Subsection1,BU1,8017933772305104452351,10445235

@@ -61,25 +61,25 @@ public class PractitionerCSVReader {
 			
 			
 			for (PractitionerCSVRecord bean : beans) {				
-				practitioner.setGivenName(bean.getFirstName());
-				practitioner.setSurname(bean.getLastName());
-				practitioner.setMobileNumber(bean.getMobile());
-				practitioner.setEmailAddress(bean.getEmail());
+				practitioner.setGivenName(bean.getGivenName());
+				practitioner.setSurname(bean.getSurname());
+				
+				practitioner.setMobileNumber(bean.getMobileNumber());
+				practitioner.setEmailAddress(bean.getEmailAddress());
 				practitioner.setPreferredName(bean.getPreferredName());
-				practitioner.setAgsNumber(bean.getEmployeeId());
+				practitioner.setAgsNumber(bean.getAgsNumber());
 				practitioner.setJobTitle(bean.getJobTitle());
-				practitioner.setTitles(bean.getTitle());
+				practitioner.setPersonalTitle(bean.getPersonalTitle());
 				practitioner.setBranch(bean.getBranch());
 				practitioner.setBusinessUnit(bean.getBusinessUnit());
 				practitioner.setDivision(bean.getDivision());
 				practitioner.setSection(bean.getSection());
 				practitioner.setSubSection(bean.getSubsection());
-				practitioner.setPhoneNumber(bean.getTelephone());
+				practitioner.setTelephoneNumber(bean.getTelephoneNumber());
 				practitioner.setPager(bean.getPager());
-				practitioner.setSuffixes(bean.getSuffix());
-				practitioner.setIRN(bean.getIrn());
-				practitioner.setGS1(bean.getGs1());
-				
+				practitioner.setSuffix(bean.getSuffix());
+				practitioner.setIRN(bean.getIRN());
+				practitioner.setGS1(bean.getGS1());
 				
 				connection.addEntry(practitioner);
 			}

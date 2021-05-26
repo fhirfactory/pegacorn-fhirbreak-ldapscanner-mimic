@@ -54,6 +54,7 @@ public class MimicLdapConnection extends BaseLdapConnection {
 			}
 			
 			entry.add("cn", newEntry.getCommonName());
+			entry.add("displayName", newEntry.getCommonName());
 			
 			connect();
 			

@@ -14,19 +14,19 @@ public class PractitionerCSVRecord {
 	private String email;
 
 	@CsvBindByPosition(position = 1)
-	private String telephone;
+	private String telephoneNumber;
 
 	@CsvBindByPosition(position = 2)
-	private String mobile;
+	private String mobileNumber;
 
 	@CsvBindByPosition(position = 3)
-	private String firstName;
+	private String givenName;
 
 	@CsvBindByPosition(position = 4)
-	private String lastName;
+	private String surname;
 
 	@CsvBindByPosition(position = 5)
-	private String employeeId;
+	private String agsNumber;
 
 	@CsvBindByPosition(position = 6)
 	private String jobTitle;
@@ -35,7 +35,7 @@ public class PractitionerCSVRecord {
 	private String preferredName;
 	
 	@CsvBindByPosition(position = 8)
-	private String title;
+	private String personalTitle;
 	
 	@CsvBindByPosition(position = 9)
 	private String suffix;
@@ -65,7 +65,7 @@ public class PractitionerCSVRecord {
 	private String irn;
 
 	
-	public String getEmail() {
+	public String getEmailAddress() {
 		return email;
 	}
 
@@ -73,44 +73,44 @@ public class PractitionerCSVRecord {
 		this.email = email;
 	}
 
-	public String getTelephone() {
-		return telephone;
+	public String getTelephoneNumber() {
+		return telephoneNumber;
 	}
 
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setTelephoneNumber(String telephoneNumber) {
+		this.telephoneNumber = telephoneNumber;
 	}
 
-	public String getMobile() {
-		return mobile;
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setMobile(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getGivenName() {
+		return givenName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setGivenName(String givenName) {
+		this.givenName = givenName;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getSurname() {
+		return surname;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
-	public String getEmployeeId() {
-		return employeeId;
+	public String getAgsNumber() {
+		return agsNumber;
 	}
 
-	public void setEmployeeId(String employeeId) {
-		this.employeeId = employeeId;
+	public void setAgsNumber(String agsNumber) {
+		this.agsNumber = agsNumber;
 	}
 
 	public String getJobTitle() {
@@ -129,12 +129,12 @@ public class PractitionerCSVRecord {
 		this.preferredName = preferredName;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getPersonalTitle() {
+		return personalTitle;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setPersonalTitle(String personalTitle) {
+		this.personalTitle = personalTitle;
 	}
 
 	public String getSuffix() {
@@ -193,19 +193,19 @@ public class PractitionerCSVRecord {
 		this.businessUnit = businessUnit;
 	}
 
-	public String getGs1() {
+	public String getGS1() {
 		return gs1;
 	}
 
-	public void setGs1(String gs1) {
+	public void setGS1(String gs1) {
 		this.gs1 = gs1;
 	}
 
-	public String getIrn() {
+	public String getIRN() {
 		return irn;
 	}
 
-	public void setIrn(String irn) {
+	public void setIRN(String irn) {
 		this.irn = irn;
 	}
 }
