@@ -88,8 +88,7 @@ public class MimicLdapConnection extends BaseLdapConnection {
 			
 		        Response response = searchCursor.get();
 				
-				if (response instanceof SearchResultEntry)
-		        {
+				if (response instanceof SearchResultEntry) {
 					return false; // Not empty.  I am sure there is a better way of detecting if the directory is empty but this is just for mimic.
 		        }
 		    }
