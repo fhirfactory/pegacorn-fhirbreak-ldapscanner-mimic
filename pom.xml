@@ -86,17 +86,7 @@
             <artifactId>hapi-fhir-client</artifactId>
             <version>${version-ca.uhn.hapi.fhir}</version>
         </dependency>
-
-
-        
-         <dependency>
-            <groupId>net.fhirfactory.pegacorn</groupId>
-            <artifactId>pegacorn-buildingblocks-apacheds</artifactId>
-            <type>jar</type>
-            <scope>compile</scope>
-            <version>${project.version}</version>
-        </dependency>
-        
+       
          <dependency>
             <groupId>net.fhirfactory.pegacorn</groupId>
             <artifactId>pegacorn-buildingblocks-datamodels-ldap</artifactId>
