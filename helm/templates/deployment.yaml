@@ -110,7 +110,7 @@ spec:
         - name: APACHEDS_BASE_PORT
           value: "{{ .Values.apacheDsBasePort }}"
         - name: APACHEDS_BASE_DN
-          value: "dc=practitioners"
+          value: "OU=EPIC,DC=act,DC=gov,DC=au"
         - name: MY_HOST_IP
           valueFrom:
             fieldRef:
