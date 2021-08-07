@@ -29,11 +29,13 @@ import net.fhirfactory.pegacorn.buildingblocks.datamodels.ldap.PractitionerLdapE
  *
  */
 public class MimicLdapConnection extends BaseLdapConnection {
-    private static final Logger LOG = LoggerFactory.getLogger(MimicLdapConnection.class);
+	
+    public MimicLdapConnection() throws LdapException {
 
-	public MimicLdapConnection() throws LdapException {
-		super(System.getenv("APACHEDS_HOST_NAME"), Integer.parseInt(System.getenv("APACHEDS_BASE_PORT")), true,  System.getenv("APACHEDS_CONNECT_NAME"), System.getenv("APACHEDS_CONNECT_CREDENTIAL"), System.getenv("APACHEDS_BASE_DN"));
 	}
+
+
+	private static final Logger LOG = LoggerFactory.getLogger(MimicLdapConnection.class);
 
 	
 	/**
@@ -45,7 +47,7 @@ public class MimicLdapConnection extends BaseLdapConnection {
 	public void addEntry(PractitionerLdapEntry newEntry) throws LdapException, IOException {
 				
 		try {
-			Entry entry = new DefaultEntry(newEntry.getDN(),
+			Entry entry = new DefaultEntry(newEntry.getDN(baseDN),
 		            "ObjectClass: 1.3.6.1.4.1.18060.17.2.5",
 		            "ObjectClass: top");
 			
