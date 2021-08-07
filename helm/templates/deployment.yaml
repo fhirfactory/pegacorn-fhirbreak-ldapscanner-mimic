@@ -109,6 +109,8 @@ spec:
           value: "{{ .Values.apacheDsConnectName }}"
         - name: APACHEDS_BASE_PORT
           value: "{{ .Values.apacheDsBasePort }}"
+        - name: APACHEDS_BASE_DN
+          value: "dc=practitioners"
         - name: MY_HOST_IP
           valueFrom:
             fieldRef:
