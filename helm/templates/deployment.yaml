@@ -144,7 +144,7 @@ spec:
         resources:
           requests:
             memory: "{{ add 128 .Values.jvmMaxHeapSizeMB }}Mi"
-        image: {{ .Values.dockerRepo }}pegacorn-mimic-ldapserver:{{ .Values.imageTag }}            
+        image: {{ .Values.dockerRepo }}pegacorn-fhirbreak-ldapscanner-mimic-loader:{{ .Values.imageTag }}            
         imagePullPolicy: {{ .Values.imagePullPolicy | default "IfNotPresent" }}
         livenessProbe:
           httpGet:

@@ -14,7 +14,7 @@
     </parent>
 
 
-    <artifactId>pegacorn-mimic-ldapserver</artifactId>
+    <artifactId>pegacorn-fhirbreak-ldapscanner-mimic-loader</artifactId>
     <name>Pegacorn :: Mimic :: Ldapserver</name>
     <description>Mimic - Ldapserver</description>
     <packaging>war</packaging>
