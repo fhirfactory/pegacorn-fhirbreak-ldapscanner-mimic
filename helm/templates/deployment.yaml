@@ -104,9 +104,15 @@ spec:
         - name: LDAP_SERVER_HOST_NAME
           value: "{{ .Values.ldapServerHostName }}"
         - name: LDAP_SERVER_BIND_PASSWORD
-          value: "{{ .Values.ldapServerBindPassword }}"
+          valueFrom:
+           secretKeyRef:
+            name: {{ .Values.serviceName }}-secrets
+            key: ldapServerBindPassword
         - name: LDAP_SERVER_BIND_DN
-          value: "{{ .Values.ldapServerBindDN }}"
+          valueFrom:
+           secretKeyRef:
+            name: {{ .Values.serviceName }}-secrets
+            key: ldapServerBindDN       
         - name: LDAP_SERVER_BASE_PORT
           value: "{{ .Values.ldapServerBasePort }}"
         - name: LDAP_SERVER_BASE_DN
