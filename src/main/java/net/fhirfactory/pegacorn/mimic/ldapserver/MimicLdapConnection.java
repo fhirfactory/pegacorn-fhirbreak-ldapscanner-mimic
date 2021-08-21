@@ -47,7 +47,7 @@ public class MimicLdapConnection extends BaseLdapConnection {
 	public void addEntry(PractitionerLdapEntry newEntry) throws LdapException, IOException {
 				
 		try {
-			Entry entry = new DefaultEntry(newEntry.getDN(baseDN),
+			Entry entry = new DefaultEntry(newEntry.getDN(),
 		            "ObjectClass: 1.3.6.1.4.1.18060.17.2.5",
 		            "ObjectClass: top");
 			
@@ -107,7 +107,5 @@ public class MimicLdapConnection extends BaseLdapConnection {
 	@Override
 	public Logger getLogger() {
 		return LOG;
-	}
-	
-	
+	}	
 }

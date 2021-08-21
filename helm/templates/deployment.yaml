@@ -101,15 +101,15 @@ spec:
           value: "{{ .Values.basePort }}"
         - name: HELM_RELEASE_TIME
           value: "{{ date "20060102-150405" .Release.Time }}"
-        - name: APACHEDS_HOST_NAME
-          value: "{{ .Values.apacheDsHostName }}"
-        - name: APACHEDS_CONNECT_CREDENTIAL
-          value: "{{ .Values.apacheDsConnectCredential }}"
-        - name: APACHEDS_CONNECT_NAME
-          value: "{{ .Values.apacheDsConnectName }}"
-        - name: APACHEDS_BASE_PORT
-          value: "{{ .Values.apacheDsBasePort }}"
-        - name: APACHEDS_BASE_DN
+        - name: LDAP_SERVER_HOST_NAME
+          value: "{{ .Values.ldapServerHostName }}"
+        - name: LDAP_SERVER_BIND_PASSWORD
+          value: "{{ .Values.ldapServerBindPassword }}"
+        - name: LDAP_SERVER_BIND_DN
+          value: "{{ .Values.ldapServerBindDN }}"
+        - name: LDAP_SERVER_BASE_PORT
+          value: "{{ .Values.ldapServerBasePort }}"
+        - name: LDAP_SERVER_BASE_DN
           value: "OU=EPIC,DC=act,DC=gov,DC=au"
         - name: MY_HOST_IP
           valueFrom:

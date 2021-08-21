@@ -57,7 +57,7 @@ public class PractitionerCSVReader {
 	 			         
 	 		 List<PractitionerCSVRecord> beans = new CsvToBeanBuilder(new StringReader(sb.toString())).withType(PractitionerCSVRecord.class).withSkipLines(1).build().parse();
 			
-			PractitionerLdapEntry practitioner = new PractitionerLdapEntry();
+			PractitionerLdapEntry practitioner = new PractitionerLdapEntry(System.getenv("LDAP_SERVER_BASE_DN"));
 			
 			
 			for (PractitionerCSVRecord bean : beans) {				
