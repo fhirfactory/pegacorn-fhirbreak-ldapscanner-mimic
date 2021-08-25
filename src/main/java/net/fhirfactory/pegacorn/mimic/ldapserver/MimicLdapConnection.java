@@ -18,7 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.fhirfactory.pegacorn.buildingblocks.datamodels.ldap.BaseLdapConnection;
-import net.fhirfactory.pegacorn.buildingblocks.datamodels.ldap.LdapAttribute;
 import net.fhirfactory.pegacorn.buildingblocks.datamodels.ldap.LdapAttributeNameEnum;
 import net.fhirfactory.pegacorn.buildingblocks.datamodels.ldap.PractitionerLdapEntry;
 
@@ -51,12 +50,11 @@ public class MimicLdapConnection extends BaseLdapConnection {
 		            "ObjectClass: 1.3.6.1.4.1.18060.17.2.5",
 		            "ObjectClass: top");
 			
-			for (Map.Entry<LdapAttributeNameEnum, LdapAttribute> attribute : newEntry.getAttributes().entrySet()) {
-		        entry.add(attribute.getKey().getName(), attribute.getValue().getValue());
+			for (Map.Entry<LdapAttributeNameEnum, String> attribute : newEntry.getAttributes().entrySet()) {
+		        entry.add(attribute.getKey().getName(), attribute.getValue());
 			}
 			
-			entry.add("cn", newEntry.getCommonName());
-			entry.add("displayName", newEntry.getCommonName());
+			entry.add(LdapAttributeNameEnum.COMMON_NAME.getName(), newEntry.getCommonName());
 			
 			connect();
 			

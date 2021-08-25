@@ -80,6 +80,7 @@ public class PractitionerCSVReader {
 				practitioner.setSuffix(bean.getSuffix());
 				practitioner.setIRN(bean.getIRN());
 				practitioner.setGS1(bean.getGS1());
+				practitioner.setCommonName(bean.getSurname() + ", " + bean.getGivenName());
 				
 				connection.addEntry(practitioner);
 			}
