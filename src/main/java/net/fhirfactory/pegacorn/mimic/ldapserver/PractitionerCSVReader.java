@@ -81,6 +81,8 @@ public class PractitionerCSVReader {
 				practitioner.setIRN(bean.getIRN());
 				practitioner.setGS1(bean.getGS1());
 				practitioner.setCommonName(bean.getSurname() + ", " + bean.getGivenName());
+				practitioner.setAccountName(bean.getGivenName() + " " + bean.getSurname());
+				practitioner.setTitle(bean.getPersonalTitle());
 				
 				connection.addEntry(practitioner);
 			}
