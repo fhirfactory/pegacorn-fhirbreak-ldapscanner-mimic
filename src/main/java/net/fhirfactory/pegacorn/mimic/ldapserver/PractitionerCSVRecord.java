@@ -44,24 +44,27 @@ public class PractitionerCSVRecord {
 	private String pager;
 	
 	@CsvBindByPosition(position = 11)
-	private String division;
+	private String department;
 	
 	@CsvBindByPosition(position = 12)
-	private String branch;
+	private String division;
 	
 	@CsvBindByPosition(position = 13)
-	private String section;
+	private String branch;
 	
 	@CsvBindByPosition(position = 14)
-	private String subsection;
+	private String section;
 	
 	@CsvBindByPosition(position = 15)
-	private String businessUnit;
+	private String subsection;
 	
 	@CsvBindByPosition(position = 16)
-	private String gs1;
+	private String businessUnit;
 	
 	@CsvBindByPosition(position = 17)
+	private String gs1;
+	
+	@CsvBindByPosition(position = 18)
 	private String irn;
 
 	
@@ -207,5 +210,13 @@ public class PractitionerCSVRecord {
 
 	public void setIRN(String irn) {
 		this.irn = irn;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 }

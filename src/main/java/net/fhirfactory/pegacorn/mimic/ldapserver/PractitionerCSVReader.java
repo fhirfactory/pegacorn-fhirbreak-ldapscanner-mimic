@@ -75,6 +75,7 @@ public class PractitionerCSVReader {
 				practitioner.setDivision(bean.getDivision());
 				practitioner.setSection(bean.getSection());
 				practitioner.setSubSection(bean.getSubsection());
+				practitioner.setDepartment(bean.getDepartment());
 				practitioner.setTelephoneNumber(bean.getTelephoneNumber());
 				practitioner.setPager(bean.getPager());
 				practitioner.setSuffix(bean.getSuffix());
@@ -83,6 +84,10 @@ public class PractitionerCSVReader {
 				practitioner.setCommonName(bean.getSurname() + ", " + bean.getGivenName());
 				practitioner.setAccountName(bean.getGivenName() + " " + bean.getSurname());
 				practitioner.setTitle(bean.getPersonalTitle());
+				
+				practitioner.setExtensionAttribute4("1235");
+				practitioner.setStreetAddress("5 main st");
+				practitioner.setSubDepartment("The sub department");
 				
 				connection.addEntry(practitioner);
 			}
