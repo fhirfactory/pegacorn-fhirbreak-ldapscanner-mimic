@@ -89,6 +89,8 @@ public class PractitionerCSVReader {
 				practitioner.setStreetAddress("5 main st");
 				practitioner.setSubDepartment("The sub department");
 				
+				practitioner.setObjectCategory("OrganizationalPerson");
+				
 				connection.addEntry(practitioner);
 			}
 			
