@@ -1,0 +1,5 @@
+---
+name: pegacorn-fhirbreak-ldapscanner-mimic-loader
+version: 1.0.0-SNAPSHOT
+description: Mimic - Ldapserver
+icon: img/icons/camel.svg

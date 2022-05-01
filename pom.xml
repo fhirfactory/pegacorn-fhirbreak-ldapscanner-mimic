@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Based on https://github.com/wildfly-extras/wildfly-camel-examples/blob/master/camel-jms/pom.xml -->
+
+    <parent>
+        <groupId>net.fhirfactory.pegacorn</groupId>
+        <artifactId>pegacorn</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pegacorn</relativePath>
+    </parent>
+
+
+    <artifactId>pegacorn-fhirbreak-ldapscanner-mimic-loader</artifactId>
+    <name>Pegacorn :: Mimic :: Ldapserver</name>
+    <description>Mimic - Ldapserver</description>
+    <packaging>war</packaging>
+
+    <scm>
+    	<url>http://pegacorn.fhirfactory.net</url>
+    </scm>
+
+    <!--  All the current unit tests required pegacorn-fhirbreak to be running in Docker. For now easier to ignore all tests -->
+    <properties>
+        <maven.test.skip>false</maven.test.skip>
+	    <version-pegacorn>1.0.0-SNAPSHOT</version-pegacorn>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-hl7</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-fhir</artifactId>
+        </dependency>
+        <!-- This dependency includes the core HAPI-FHIR classes -->
+   
+
+        <dependency>
+            <groupId>org.jboss.msc</groupId>
+            <artifactId>jboss-msc</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>${version-javax.enterprise-cdi-api}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.jms</groupId>
+            <artifactId>jboss-jms-api_2.0_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_4.0_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.ws.rs</groupId>
+            <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- Include the client -->
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-client</artifactId>
+            <version>${version-ca.uhn.hapi.fhir}</version>
+        </dependency>
+       
+         <dependency>
+            <groupId>net.fhirfactory.pegacorn</groupId>
+            <artifactId>pegacorn-buildingblocks-datamodels-ldap</artifactId>
+            <type>jar</type>
+            <scope>compile</scope>
+            <version>${project.version}</version>
+        </dependency>
+        
+
+		<dependency>
+		    <groupId>org.apache.camel</groupId>
+		    <artifactId>camel-quartz</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${version-org.json}</version>
+        </dependency>
+        
+         <dependency>
+    		<groupId>org.apache.directory.api</groupId>
+    		<artifactId>api-ldap-model</artifactId>
+   		 	<version>2.0.1</version>
+		</dependency>
+		
+		<dependency>
+  			<groupId>org.apache.directory.api</groupId>
+    		<artifactId>api-all</artifactId>
+    		<version>2.0.1</version>
+		</dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${version-org.apache.commons-lang3}</version>
+        </dependency>
+        <!-- Provided -->
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-cdi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-endpointdsl</artifactId>
+        </dependency>
+        <dependency>
+    		<groupId>org.apache.camel</groupId>
+    		<artifactId>camel-ldap</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-gson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-jackson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-servlet</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-undertow</artifactId>
+            <version>${version-org.apache.camel}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-netty-http</artifactId>
+            <version>${version-org.apache.camel}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-servlet</artifactId>
+            <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat.embed</groupId>
+                    <artifactId>tomcat-embed-logging-juli</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--                                      -->
+        <!--               Test                   -->
+        <!--                                      -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+    		<groupId>org.apache.directory.api</groupId>
+    		<artifactId>api-ldap-model</artifactId>
+   		 	<version>2.0.1</version>
+		</dependency>
+		
+		<dependency>
+  			<groupId>org.apache.directory.api</groupId>
+    		<artifactId>api-all</artifactId>
+    		<version>2.0.1</version>
+		</dependency>
+		 <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.1</version>
+        </dependency>
+		
+
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <!-- An unit testing testing profile -->
+            <id>unit-test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <childDelegation>false</childDelegation>
+                            <useFile>true</useFile>
+                            <failIfNoTests>false</failIfNoTests>
+                            <rerunFailingTestsCount>0</rerunFailingTestsCount>
+                            <includes>
+                                <include>**/*Test.java</include>
+                            </includes>
+                            <argLine>-Djava.locale.providers=COMPAT</argLine>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+
+    <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${version-org.apache.maven-war-plugin}</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Dependencies>org.jboss.msc</Dependencies>
+                        </manifestEntries>
+                    </archive>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
